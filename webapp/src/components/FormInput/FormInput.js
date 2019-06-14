@@ -1,17 +1,17 @@
-import React from "react";
+import React from 'react';
 
-import Button from "../Button/Button";
-import Input from "../Input/Input";
+import Button from '../Button/Button';
+import Input from '../Input/Input';
 
-import { useInput } from "../hooks/useInput";
+import {useInput} from '../hooks/useInput';
 
-import "./FormInput.css";
+import './FormInput.css';
 
 const FormInput = props => {
-  const [handleOnChange, inputValue, resetUseInput] = useInput("");
+  const [handleOnChange, inputValue, resetUseInput] = useInput('');
 
   const handleButtonClick = () => {
-    props.onSubmit(inputValue || "Untitled");
+    props.onSubmit(inputValue || 'Untitled');
     resetUseInput();
   };
 

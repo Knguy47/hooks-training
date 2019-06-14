@@ -1,16 +1,16 @@
-import React from "react";
+import React from 'react';
 
-import Button from "../Button/Button";
-import Input from "../Input/Input";
+import Button from '../Button/Button';
+import Input from '../Input/Input';
 
-import "./FormInput.css";
+import './FormInput.css';
 
 class FormInput extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      inputValue: ""
+      inputValue: ''
     };
 
     this.handleButtonClick = this.handleButtonClick.bind(this);
@@ -19,16 +19,16 @@ class FormInput extends React.Component {
   }
 
   handleClearInputValue = () => {
-    this.setState({ inputValue: "" });
+    this.setState({inputValue: ''});
   };
 
   handleButtonClick = () => {
-    this.props.onSubmit(this.state.inputValue || "Untitled");
+    this.props.onSubmit(this.state.inputValue || 'Untitled');
     this.handleClearInputValue();
   };
 
   handleOnChange = event => {
-    this.setState({ inputValue: event.target.value });
+    this.setState({inputValue: event.target.value});
   };
 
   render = () => {

@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
-import Tile from "./components/Tile/Tile";
-import FormInput from "./components/FormInput/FormInput";
-import { colorGenerator } from "./utils/colorGenerator";
+import Tile from './components/Tile/Tile';
+import FormInput from './components/FormInput/FormInput';
+import {colorGenerator} from './utils/colorGenerator';
 
-import "./App.css";
+import './App.css';
 
 class App extends React.Component {
   constructor() {
@@ -12,7 +12,7 @@ class App extends React.Component {
     this.state = {
       counter: 0,
       cardList: [],
-      selectedCardName: "Welcome"
+      selectedCardName: 'Welcome'
     };
 
     this.handleOnInputSubmit = this.handleOnInputSubmit.bind(this);
@@ -31,7 +31,7 @@ class App extends React.Component {
   };
 
   handleTimer = () => {
-    this.setState({ counter: this.state.counter + 1 });
+    this.setState({counter: this.state.counter + 1});
   };
 
   handleOnInputSubmit = input => {
@@ -39,14 +39,14 @@ class App extends React.Component {
       return {
         cardList: [
           ...prevState.cardList,
-          { name: input, color: colorGenerator() }
+          {name: input, color: colorGenerator()}
         ]
       };
     });
   };
 
   handleOnTileClick = name => {
-    this.setState({ selectedCardName: name });
+    this.setState({selectedCardName: name});
   };
 
   render = () => {
@@ -56,7 +56,7 @@ class App extends React.Component {
         <div className="app-title">{this.state.selectedCardName}</div>
         <FormInput onSubmit={this.handleOnInputSubmit} buttonName="Add Card" />
         <div className="app-view">
-          {this.state.cardList.map(({ name, color }, i) => (
+          {this.state.cardList.map(({name, color}, i) => (
             <Tile
               key={i}
               name={name}
