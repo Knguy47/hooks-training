@@ -1,13 +1,21 @@
-import React from 'react';
+import React from "react";
 
-import './Input.css';
+import "./Input.css";
 
-const Input = (props) => {
+const Input = props => {
   return (
-    <div className='input-container'>
-      <input placeholder="Card Name" className='input-text' type="text" name="tilename" value={props.value} onChange={props.onChange} required />
+    <div className="input-container">
+      <input
+        placeholder="Card Name"
+        className="input-text"
+        type="text"
+        name="tilename"
+        value={props.value}
+        onChange={props.onChange}
+        required
+      />
     </div>
-  )
-}
+  );
+};
 
 export default Input;
