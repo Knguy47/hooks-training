@@ -2,7 +2,7 @@ import React from 'react';
 
 import './Tile.css';
 
-const Tile = (props) => {
+const Tile = props => {
   const {onClick, name, color} = props;
 
   return (

@@ -7,24 +7,20 @@ import {useInput} from '../hooks/useInput';
 
 import './FormInput.css';
 
-const FormInput = (props) => {
-  const [
-    handleOnChange,
-    inputValue,
-    resetUseInput
-  ] = useInput('');
+const FormInput = props => {
+  const [handleOnChange, inputValue, resetUseInput] = useInput('');
 
   const handleButtonClick = () => {
     props.onSubmit(inputValue || 'Untitled');
     resetUseInput();
-  }
+  };
 
   return (
-    <div className='form-input'>
-      <Input onChange={handleOnChange} value={inputValue}/>
-      <Button name={props.buttonName} onClick={handleButtonClick}/>
+    <div className="form-input">
+      <Input onChange={handleOnChange} value={inputValue} />
+      <Button name={props.buttonName} onClick={handleButtonClick} />
     </div>
-  )
-}
+  );
+};
 
 export default FormInput;

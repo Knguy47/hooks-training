@@ -9,8 +9,14 @@
 }
 
 .app-title {
-  font-size: 32px;
+  font-size: 60px;
   margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.app-timer {
+  
 }
 
 .app-view {
