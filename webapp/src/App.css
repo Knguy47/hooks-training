@@ -5,6 +5,12 @@
   text-align: center;
   padding: 10px;
   background-color: white;
+  align-items: center;
+}
+
+.app-title {
+  font-size: 32px;
+  margin-bottom: 20px;
 }
 
 .app-view {
@@ -15,4 +21,5 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   align-content: center;
+  max-width: 1200px;
 }

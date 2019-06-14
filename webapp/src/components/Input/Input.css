@@ -1,0 +1,30 @@
+.input-text {
+  display: block;
+  border: 1px solid #ccc; 
+  -webkit-box-shadow: 
+    inset 0 0 2px  rgba(0,0,0,0.1),
+          0 0 4px rgba(0,0,0,0.1); 
+  -moz-box-shadow: 
+    inset 0 0 2px  rgba(0,0,0,0.1),
+          0 0 4px rgba(0,0,0,0.1); 
+  box-shadow: 
+    inset 0 0 2px  rgba(0,0,0,0.1),
+          0 0 4px rgba(0,0,0,0.1); 
+  padding: 15px;
+  background: rgba(255,255,255,0.5);
+  margin: 0 10px 10px 0;
+  transition: scale .2s ease-in-out;
+}
+
+.input-text::placeholder {
+  font-size: 16px;
+  font-style: italic;
+}
+
+.input-text:hover {
+  transform: scale(0.97);
+}
+
+.input-text:focus {
+  transform: scale(0.97);
+}

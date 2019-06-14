@@ -1,36 +1,31 @@
 import React, {useState} from 'react';
 
 import Tile from './components/Tile/Tile'
-import Button from './components/Button/Button';
-
+import FormInput from './components/FormInput/FormInput';
+import {colorGenerator} from './utils/colorGenerator';
 
 import './App.css';
 
 function App() {
   const [cardList, setCardList] = useState([]);
-  const [selectedCardName, setSelectedCardName] = useState('');
+  const [selectedCardName, setSelectedCardName] = useState('Welcome');
 
-  const addCard = card => {
+  const handleOnInputSubmit = input => {
     setCardList(prevState => ([
       ...prevState,
-      {name: 'test'},
+      {name: input, color: colorGenerator()},
     ]));
-
   }
 
   return (
     <div className="App">
-      <div>{selectedCardName}</div>
-      <Button onClick={addCard}/>
+      <div className="app-title">{selectedCardName}</div>
+      <FormInput onSubmit={handleOnInputSubmit} buttonName='Add Card'/>
       <div className="app-view">
-        {cardList.map(({name}) => <Tile key={name} name={name} onClick={() => setSelectedCardName(name)}/>)}
+        {cardList.map(({name, color}, i) => <Tile key={i} name={name} color={color} onClick={() => setSelectedCardName(name)}/>)}
       </div>
     </div>
   );
-}
-
-function handler() {
-  const [] = useState()
 }
 
 export default App;

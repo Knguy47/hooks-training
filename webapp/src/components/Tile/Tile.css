@@ -5,7 +5,7 @@
   border-radius: 40px;
   box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
   cursor: pointer;
-  transition: 0.4s;
+  transition: 0.2s;
 }
 
 .tile-container .tile-content {
@@ -14,7 +14,7 @@
   border-radius: 40px;
 }
 
-.tile-container .tile-content img {
+.tile-container .tile-content div {
   width: inherit;
   height: inherit;
   border-radius: 40px;
@@ -23,6 +23,7 @@
 
 .tile-container .tile-header {
   text-align: center;
+  color: white;
   border-radius: 0px 0px 40px 40px;
   font-family: sans-serif;
   font-weight: bold;
