@@ -3,37 +3,38 @@
   width: 200px;
   height: 200px;
   border-radius: 40px;
-  box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25),
+    -5px -5px 30px 7px rgba(0, 0, 0, 0.22);
   cursor: pointer;
   transition: 0.2s;
+  display: flex;
+  flex-direction: column;
 }
 
-.tile-container .tile-content {
-  width: inherit;
-  height: inherit;
-  border-radius: 40px;
+.tile-container .tile-delete {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  padding: 10px 20px 0 0;
 }
 
-.tile-container .tile-content div {
-  width: inherit;
-  height: inherit;
-  border-radius: 40px;
-  object-fit: cover;
-}
-
-.tile-container .tile-header {
+.tile-container .tile-name {
   text-align: center;
   color: white;
-  border-radius: 0px 0px 40px 40px;
   font-family: sans-serif;
   font-weight: bold;
   font-size: 30px;
-  margin-top: -80px;
-  height: 40px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.tile-container .tile-name h3 {
+  margin: 5px; /* override Chrome styling */
 }
 
 .tile-container:hover {
   transform: scale(0.9, 0.9);
-  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
-    -5px -5px 30px 15px rgba(0,0,0,0.22);
+  box-shadow: 5px 5px 30px 15px rgba(0, 0, 0, 0.25),
+    -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
 }
