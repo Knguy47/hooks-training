@@ -8,26 +8,39 @@ import {useTimer} from './components/hooks/useTimer';
 import './App.css';
 
 function App() {
-  const [cardList, setCardList] = useState([]);
-  const [selectedCardName, setSelectedCardName] = useState('Welcome');
+  const [tileList, setTileList] = useState([
+    {name: 'Tile', color: colorGenerator(), id: 0}
+  ]);
+  const [selectedTile, setSelectedTile] = useState({});
   const [counter] = useTimer();
 
   const handleOnInputSubmit = input => {
-    setCardList([...cardList, {name: input, color: colorGenerator()}]);
+    setTileList([
+      ...tileList,
+      {name: input, color: colorGenerator(), id: tileList.length + 1}
+    ]);
+  };
+
+  const handleDeleteClick = (id, name) => {
+    setTileList(tileList.filter(card => card.id !== id));
   };
 
   return (
     <div className="App">
-      <div className="app-timer">{counter}</div>
-      <div className="app-title">{selectedCardName}</div>
+      <div className="app-timer">User session time: {counter}</div>
+      <div className="app-title" style={{color: selectedTile.color}}>
+        {selectedTile.name || 'Welcome'}
+      </div>
       <FormInput onSubmit={handleOnInputSubmit} buttonName="Add Card" />
       <div className="app-view">
-        {cardList.map(({name, color}, i) => (
+        {tileList.map(({name, color, id}) => (
           <Tile
-            key={i}
+            key={id}
             name={name}
             color={color}
-            onClick={() => setSelectedCardName(name)}
+            id={id}
+            onTileClick={() => setSelectedTile({name, color})}
+            onDeleteClick={() => handleDeleteClick(id, name)}
           />
         ))}
       </div>

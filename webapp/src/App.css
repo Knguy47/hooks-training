@@ -9,14 +9,16 @@
 }
 
 .app-title {
-  font-size: 60px;
+  font-size: 72px;
   margin-bottom: 20px;
   text-transform: uppercase;
   font-weight: 800;
 }
 
 .app-timer {
-  
+  display: flex;
+  flex-direction: row;
+  align-self: flex-end;
 }
 
 .app-view {
