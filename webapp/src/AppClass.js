@@ -11,13 +11,14 @@ class App extends React.Component {
     super();
     this.state = {
       counter: 0,
-      cardList: [],
-      selectedCardName: 'Welcome'
+      tileList: [],
+      selectedTileName: {}
     };
 
     this.handleOnInputSubmit = this.handleOnInputSubmit.bind(this);
     this.handleOnTileClick = this.handleOnTileClick.bind(this);
     this.handleTimer = this.handleTimer.bind(this);
+    this.handleDeleteClick = this.handleDeleteClick.bind(this);
   }
 
   timer;
@@ -52,22 +53,24 @@ class App extends React.Component {
   };
 
   handleOnTileClick = name => {
-    this.setState({selectedCardName: name});
+    this.setState({selectedTileName: name});
   };
 
   render = () => {
     return (
       <div className="App">
         <div className="app-timer">{this.state.counter}</div>
-        <div className="app-title">{this.state.selectedCardName}</div>
+        <div className="app-title">{this.state.selectedTileName}</div>
         <FormInput onSubmit={this.handleOnInputSubmit} buttonName="Add Card" />
         <div className="app-view">
-          {this.state.cardList.map(({name, color}, i) => (
+          {this.state.tileList.map(tile => (
             <Tile
-              key={i}
-              name={name}
-              color={color}
-              onClick={() => this.handleOnTileClick(name)}
+              key={tile.id}
+              name={tile.name}
+              color={tile.color}
+              id={tile.id}
+              onTileClick={this.handleOnTileClick}
+              onDeleteClick={this.handleDeleteClick}
             />
           ))}
         </div>
