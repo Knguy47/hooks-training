@@ -1,26 +1,24 @@
-import React from "react";
+import React from 'react';
 
-import "./Tile.css";
+import './Tile.css';
 
 const Tile = props => {
-  const { onTileClick, name, color, id, onDeleteClick } = props;
-
-  const buttonStyle = {
-    backgroundColor: color,
-    border: "none",
-    "font-weight": "bold",
-    "font-size": "20px",
-    color: "white"
-  };
+  const {onTileClick, name, color, id, onDeleteClick} = props;
 
   return (
     <div
       onClick={onTileClick}
       className="tile-container"
-      style={{ backgroundColor: color }}
+      style={{backgroundColor: color}}
     >
       <div className="tile-delete">
-        <button style={{ ...buttonStyle }} onClick={() => onDeleteClick(id)}>
+        <button
+          className="tile-delete-icon"
+          onClick={event => {
+            event.stopPropagation();
+            onDeleteClick(id);
+          }}
+        >
           X
         </button>
       </div>

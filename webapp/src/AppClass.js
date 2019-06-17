@@ -45,6 +45,12 @@ class App extends React.Component {
     });
   };
 
+  handleDeleteClick = (id, name) => {
+    this.setState(prevState => ({
+      cardList: prevState.cardList.filter(card => card.id !== id)
+    }));
+  };
+
   handleOnTileClick = name => {
     this.setState({selectedCardName: name});
   };

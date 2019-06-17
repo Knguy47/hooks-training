@@ -1,42 +1,46 @@
-import React, { useState } from "react";
+import React, {useState} from 'react';
 
-import Tile from "./components/Tile/Tile";
-import FormInput from "./components/FormInput/FormInput";
-import { colorGenerator } from "./utils/colorGenerator";
-import { useTimer } from "./components/hooks/useTimer";
+import Tile from './components/Tile/Tile';
+import FormInput from './components/FormInput/FormInput';
+import {colorGenerator} from './utils/colorGenerator';
+import {useTimer} from './components/hooks/useTimer';
 
-import "./App.css";
+import './App.css';
 
 function App() {
-  const [cardList, setCardList] = useState([]);
-  const [selectedCardName, setSelectedCardName] = useState("Welcome");
+  const [tileList, setTileList] = useState([
+    {name: 'Tile', color: colorGenerator(), id: 0}
+  ]);
+  const [selectedTile, setSelectedTile] = useState({});
   const [counter] = useTimer();
 
   const handleOnInputSubmit = input => {
-    setCardList([
-      ...cardList,
-      { name: input, color: colorGenerator(), id: Math.random() }
+    setTileList([
+      ...tileList,
+      {name: input, color: colorGenerator(), id: tileList.length + 1}
     ]);
   };
 
-  const deleteCard = (id, name) => {
-    setCardList(cardList.filter(card => card.id !== id));
+  const handleDeleteClick = (id, name) => {
+    setTileList(tileList.filter(card => card.id !== id));
   };
 
   return (
     <div className="App">
-      <div className="app-timer">{counter}</div>
-      <div className="app-title">{selectedCardName}</div>
+      <div className="app-timer">User session time: {counter}</div>
+      <div className="app-title" style={{color: selectedTile.color}}>
+        {selectedTile.name || 'Welcome'}
+      </div>
       <FormInput onSubmit={handleOnInputSubmit} buttonName="Add Card" />
       <div className="app-view">
-        {cardList.map(({ name, color, id }, i) => (
+        {tileList.map(({name, color, id}) => (
           <Tile
-            key={i}
+            key={id}
             name={name}
             color={color}
             id={id}
-            onTileClick={() => setSelectedCardName(name)}
-            onDeleteClick={() => deleteCard(id, name)}
+            onTileClick={() => setSelectedTile({name, color})}
+            onDeleteClick={() => handleDeleteClick(id, name)}
           />
         ))}
       </div>
