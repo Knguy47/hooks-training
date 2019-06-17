@@ -4,12 +4,12 @@ export const useTimer = () => {
   const [counter, setCounter] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    const timer = setTimeout(() => {
       setCounter(counter + 1);
     }, 1000);
 
     return () => {
-      clearInterval(timer);
+      clearTimeout(timer);
     };
   }, [counter]);
 
