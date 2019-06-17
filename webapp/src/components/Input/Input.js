@@ -6,7 +6,7 @@ const Input = props => {
   return (
     <div className="input-container">
       <input
-        placeholder="Card Name"
+        placeholder="Tile Name"
         className="input-text"
         type="text"
         name="tilename"

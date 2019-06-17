@@ -1,7 +1,7 @@
 import {useState} from 'react';
 
-export const useInput = initialValue => {
-  const [inputValue, setInputValue] = useState(initialValue);
+export const useInput = callBack => {
+  const [inputValue, setInputValue] = useState();
 
   const handleOnChange = event => {
     setInputValue(event.target.value);
@@ -11,5 +11,10 @@ export const useInput = initialValue => {
     setInputValue('');
   };
 
-  return [handleOnChange, inputValue, resetUseInput];
+  const handleButtonClick = () => {
+    callBack(inputValue || 'Untitled');
+    resetUseInput();
+  };
+
+  return [handleOnChange, inputValue, handleButtonClick];
 };
