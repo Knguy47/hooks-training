@@ -3,7 +3,7 @@ import React from "react";
 import "./Tile.css";
 
 const Tile = props => {
-  const { onClick, name, color } = props;
+  const { onTileClick, name, color, id, onDeleteClick } = props;
 
   const buttonStyle = {
     backgroundColor: color,
@@ -15,12 +15,14 @@ const Tile = props => {
 
   return (
     <div
-      onClick={onClick}
+      onClick={onTileClick}
       className="tile-container"
       style={{ backgroundColor: color }}
     >
       <div className="tile-delete">
-        <button style={{ ...buttonStyle }}>X</button>
+        <button style={{ ...buttonStyle }} onClick={() => onDeleteClick(id)}>
+          X
+        </button>
       </div>
       <div className="tile-name">
         <h3>{name}</h3>
