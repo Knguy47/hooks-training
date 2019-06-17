@@ -19,7 +19,7 @@ function App() {
     ]);
   };
 
-  const removeCard = (id, name) => {
+  const deleteCard = (id, name) => {
     setCardList(cardList.filter(card => card.id !== id));
   };
 
@@ -36,7 +36,7 @@ function App() {
             color={color}
             id={id}
             onTileClick={() => setSelectedCardName(name)}
-            onDeleteClick={() => removeCard(id, name)}
+            onDeleteClick={() => deleteCard(id, name)}
           />
         ))}
       </div>
