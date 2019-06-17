@@ -34,14 +34,14 @@ function App() {
       </div>
       <FormInput onSubmit={handleOnInputSubmit} buttonName="Add Card" />
       <div className="app-view">
-        {tileList.map(({name, color, id}) => (
+        {tileList.map(tile => (
           <Tile
-            key={id}
-            name={name}
-            color={color}
-            id={id}
-            onTileClick={() => setSelectedTile({name, color})}
-            onDeleteClick={() => handleDeleteClick(id, name)}
+            key={tile.id}
+            name={tile.name}
+            color={tile.color}
+            id={tile.id}
+            onTileClick={() => setSelectedTile(tile)}
+            onDeleteClick={() => handleDeleteClick(tile.id, tile.name)}
           />
         ))}
       </div>

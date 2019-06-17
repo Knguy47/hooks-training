@@ -17,12 +17,12 @@ function App() {
       </div>
       <FormInput onSubmit={() => {}} buttonName="Add Card" />
       <div className="app-view">
-        {tileList.map(({name, color, id}) => (
+        {tileList.map(tile => (
           <Tile
-            key={id}
-            name={name}
-            color={color}
-            id={id}
+            key={tile.id}
+            name={tile.name}
+            color={tile.color}
+            id={tile.id}
             onTileClick={() => {}}
             onDeleteClick={() => {}}
           />
